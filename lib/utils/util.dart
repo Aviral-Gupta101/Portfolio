@@ -70,4 +70,4 @@ List<Widget> mySkillsTilesRight = const [
 ];
 
 const maxScreenWidth = 650;
-const aboutSectionWidthBreakPoint = 840;
+const aboutSectionWidthBreakPoint = 855;

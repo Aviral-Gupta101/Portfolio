@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoilio/components/about_me_section.dart';
+import 'package:portfoilio/components/coding_section.dart';
 import 'package:portfoilio/components/header.dart';
 import 'package:portfoilio/components/home.dart';
 
@@ -21,6 +22,7 @@ class HomePage extends StatelessWidget {
           // Header(constraints.maxWidth),
           Home(),
           AboutMeSection(),
+          CodingSection(),
         ],
       ),
     );
