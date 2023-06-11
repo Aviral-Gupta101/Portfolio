@@ -22,3 +22,5 @@ TextStyle titleTextStyle(Color color, FontWeight fontWeight, double fontSize) {
   );
   return navbarStyle;
 }
+
+const maxScreenWidth = 650;

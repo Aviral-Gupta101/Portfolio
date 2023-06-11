@@ -33,7 +33,7 @@ class Header extends StatelessWidget {
             ],
           ),
           // Spacer(),
-          width > 600
+          width > maxScreenWidth
               ? Row(
                   children: [
                     TextButton(

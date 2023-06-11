@@ -15,18 +15,18 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
-            mainAxisAlignment: size.width >= 600
+            mainAxisAlignment: size.width >= maxScreenWidth
                 ? MainAxisAlignment.spaceAround
                 : MainAxisAlignment.center,
             children: [
-              // size.width >= 600
+              // size.width >= maxScreenWidth
               //     ? Flexible(flex: 2, child: Container())
               //     : Container(),
               SlideInLeft(
                 delay: const Duration(seconds: 1),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: size.width >= 600
+                  crossAxisAlignment: size.width >= maxScreenWidth
                       ? CrossAxisAlignment.start
                       : CrossAxisAlignment.center,
                   children: [
@@ -63,10 +63,10 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              // size.width >= 600
+              // size.width >= maxScreenWidth
               //     ? Flexible(flex: 2, child: Container())
               //     : Container(),
-              size.width >= 600
+              size.width >= maxScreenWidth
                   ? SlideInRight(
                       delay: const Duration(seconds: 1),
                       child: const CircleAvatar(
@@ -77,13 +77,13 @@ class Home extends StatelessWidget {
                       ),
                     )
                   : Container(),
-              // size.width >= 600
+              // size.width >= maxScreenWidth
               // ? Flexible(flex: 2, child: Container())
               // : Container(),
             ],
           ),
           const SizedBox(height: 50),
-          size.width < 600
+          size.width < maxScreenWidth
               ? BounceInDown(
                   delay: const Duration(seconds: 1),
                   // duration: const Duration(seconds: 2),
