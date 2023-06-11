@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfoilio/widgets/about_me.dart';
-import 'package:portfoilio/widgets/header.dart';
-import 'package:portfoilio/widgets/home.dart';
+import 'package:portfoilio/components/about_me_section.dart';
+import 'package:portfoilio/components/header.dart';
+import 'package:portfoilio/components/home.dart';
 
 class HomePage extends StatelessWidget {
   final BoxConstraints constraints;
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         children: const [
           // Header(constraints.maxWidth),
           Home(),
-          AboutMe(),
+          AboutMeSection(),
         ],
       ),
     );

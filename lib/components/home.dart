@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height - 50,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
