@@ -32,7 +32,6 @@ class _MySkillsState extends State<MySkills> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Column(
@@ -62,8 +61,7 @@ class _MySkillsState extends State<MySkills> {
             const SizedBox(height: 20),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
           children: [
             VisibilityDetector(
               key: const ValueKey("ListTiles-animation"),
@@ -77,60 +75,30 @@ class _MySkillsState extends State<MySkills> {
               },
               child: Flash(
                 animate: animateSkillCard,
-                child: width > 450
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Card(
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 200),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: mySkillsTilesLeft,
-                              ),
-                            ),
-                          ),
-                          Card(
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 200),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: mySkillsTilesRight,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    : Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Card(
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 200),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: mySkillsTilesLeft,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Card(
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 200),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: mySkillsTilesRight,
-                              ),
-                            ),
-                          )
-                        ],
+                child: Wrap(
+                  children: [
+                    Card(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 200),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: mySkillsTilesLeft,
+                        ),
                       ),
+                    ),
+                    Card(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 200),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: mySkillsTilesRight,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             // Right child
