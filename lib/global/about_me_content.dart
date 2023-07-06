@@ -25,9 +25,11 @@ class _AboutMeContentState extends State<AboutMeContent> {
             onVisibilityChanged: (visibilityInfo) async {
               if (visibilityInfo.visibleFraction >= 0.5) {
                 await Future.delayed(const Duration(seconds: 1));
-                setState(() {
-                  animatefullStackDev = true;
-                });
+                if (mounted) {
+                  setState(() {
+                    animatefullStackDev = true;
+                  });
+                }
               }
             },
             child: Pulse(

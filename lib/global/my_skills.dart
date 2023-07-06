@@ -41,9 +41,11 @@ class _MySkillsState extends State<MySkills> {
               onVisibilityChanged: (visibilityInfo) async {
                 if (visibilityInfo.visibleFraction >= 0.5) {
                   await Future.delayed(const Duration(seconds: 2));
-                  setState(() {
-                    animateMySkills = true;
-                  });
+                  if (mounted) {
+                    setState(() {
+                      animateMySkills = true;
+                    });
+                  }
                 }
               },
               child: Pulse(
@@ -68,9 +70,11 @@ class _MySkillsState extends State<MySkills> {
               onVisibilityChanged: (visibilityInfo) async {
                 if (visibilityInfo.visibleFraction >= 0.5) {
                   await Future.delayed(const Duration(seconds: 3));
-                  setState(() {
-                    animateSkillCard = true;
-                  });
+                  if (mounted) {
+                    setState(() {
+                      animateSkillCard = true;
+                    });
+                  }
                 }
               },
               child: Flash(

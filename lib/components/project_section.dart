@@ -2,8 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:portfoilio/widgets/project_card.dart';
 import 'package:portfoilio/widgets/section_header.dart';
 
-class ProjectSection extends StatelessWidget {
-  const ProjectSection({super.key});
+class ProjectSection extends StatefulWidget {
+  final void Function(double) fun;
+  const ProjectSection(this.fun, {super.key});
+
+  @override
+  State<ProjectSection> createState() => _ProjectSectionState();
+}
+
+class _ProjectSectionState extends State<ProjectSection> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox renderBox = context.findRenderObject() as RenderBox;
+      widget.fun(renderBox.size.height);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +72,8 @@ class ProjectSection extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 200),
               child: Divider(
-                thickness: 0.75,
-                color: Colors.white,
+                thickness: 0.25,
+                color: Colors.grey,
               ),
             ),
           ],

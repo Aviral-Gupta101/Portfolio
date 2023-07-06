@@ -71,5 +71,3 @@ List<Widget> mySkillsTilesRight = const [
 
 const maxScreenWidth = 650;
 const aboutSectionWidthBreakPoint = 855;
-
-String instagram_clone_des = "";

@@ -2,8 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:portfoilio/widgets/coding_profile_card.dart';
 import 'package:portfoilio/widgets/section_header.dart';
 
-class CodingSection extends StatelessWidget {
-  const CodingSection({super.key});
+class CodingSection extends StatefulWidget {
+  final void Function(double) fun;
+  const CodingSection(this.fun, {super.key});
+
+  @override
+  State<CodingSection> createState() => _CodingSectionState();
+}
+
+class _CodingSectionState extends State<CodingSection> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox renderBox = context.findRenderObject() as RenderBox;
+      widget.fun(renderBox.size.height);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

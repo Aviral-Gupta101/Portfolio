@@ -69,9 +69,12 @@ class Home extends StatelessWidget {
                     child: const CircleAvatar(
                       maxRadius: 130,
                       minRadius: 60,
-                      backgroundImage: NetworkImage(
-                        "https://png.pngtree.com/element_our/20190528/ourmid/pngtree-520-valentine-s-day-boy-avatar-image_1153279.jpg",
+                      backgroundImage: AssetImage(
+                        "assets/aviral.jpeg",
                       ),
+                      // backgroundImage: NetworkImage(
+                      //   "https://png.pngtree.com/element_our/20190528/ourmid/pngtree-520-valentine-s-day-boy-avatar-image_1153279.jpg",
+                      // ),
                     ),
                   ),
                 ],

@@ -7,7 +7,8 @@ import 'package:portfoilio/widgets/section_header.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AboutMeSection extends StatefulWidget {
-  const AboutMeSection({super.key});
+  final void Function(double) fun;
+  const AboutMeSection(this.fun, {super.key});
 
   @override
   State<AboutMeSection> createState() => _AboutMeState();
@@ -15,6 +16,15 @@ class AboutMeSection extends StatefulWidget {
 
 class _AboutMeState extends State<AboutMeSection> {
   bool animateAboutMe = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox renderBox = context.findRenderObject() as RenderBox;
+      widget.fun(renderBox.size.height);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +39,7 @@ class _AboutMeState extends State<AboutMeSection> {
             VisibilityDetector(
               key: const ValueKey("about-me-who-am-i-key"),
               onVisibilityChanged: (visibilityInfo) {
-                if (visibilityInfo.visibleFraction >= 0.5) {
+                if (visibilityInfo.visibleFraction >= 0.5 && mounted == true) {
                   setState(() {
                     animateAboutMe = true;
                   });

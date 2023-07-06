@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:portfoilio/utils/util.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   final double width;
-  const Header(this.width, {super.key});
+  final Function(double) scroll;
+  final List<double> list;
+  const Header(this.width, this.scroll, this.list, {super.key});
+
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  int dropDownValue = 1;
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double homeSectionheight = 0;
+    double aboutSectionHeight = homeSectionheight + height - 20;
+    double profileSectionHeight = widget.list[0] + aboutSectionHeight;
+    double projectSectionHeight = widget.list[1] + profileSectionHeight;
+
     return SizedBox(
       height: 65,
       child: Row(
@@ -32,12 +47,13 @@ class Header extends StatelessWidget {
               ),
             ],
           ),
-          // Spacer(),
-          width > maxScreenWidth
+          widget.width > maxScreenWidth
               ? Row(
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.scroll(homeSectionheight);
+                      },
                       child: Text(
                         "Home",
                         style: navbarTextStyle(
@@ -49,7 +65,9 @@ class Header extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.scroll(aboutSectionHeight);
+                      },
                       child: Text(
                         "About",
                         style: navbarTextStyle(
@@ -61,7 +79,9 @@ class Header extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.scroll(profileSectionHeight);
+                      },
                       child: Text(
                         "Profile",
                         style: navbarTextStyle(
@@ -73,7 +93,9 @@ class Header extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.scroll(projectSectionHeight);
+                      },
                       child: Text(
                         "Projects",
                         style: navbarTextStyle(
@@ -99,19 +121,20 @@ class Header extends StatelessWidget {
                 )
               : DropdownButton(
                   focusColor: colorScheme.background,
-                  value: 1,
+                  value: dropDownValue,
                   icon: const Icon(
                     Icons.menu,
                     color: Colors.white,
                   ),
-                  items: const [
+                  items: [
                     DropdownMenuItem(
                       value: 1,
                       child: Text(
                         "Home",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                        style: navbarTextStyle(
+                          Colors.white,
+                          FontWeight.normal,
+                          17,
                         ),
                       ),
                     ),
@@ -119,9 +142,10 @@ class Header extends StatelessWidget {
                       value: 2,
                       child: Text(
                         "About",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                        style: navbarTextStyle(
+                          Colors.white,
+                          FontWeight.normal,
+                          17,
                         ),
                       ),
                     ),
@@ -129,9 +153,10 @@ class Header extends StatelessWidget {
                       value: 3,
                       child: Text(
                         "Profile",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                        style: navbarTextStyle(
+                          Colors.white,
+                          FontWeight.normal,
+                          17,
                         ),
                       ),
                     ),
@@ -139,9 +164,10 @@ class Header extends StatelessWidget {
                       value: 4,
                       child: Text(
                         "Projects",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                        style: navbarTextStyle(
+                          Colors.white,
+                          FontWeight.normal,
+                          17,
                         ),
                       ),
                     ),
@@ -149,15 +175,32 @@ class Header extends StatelessWidget {
                       value: 5,
                       child: Text(
                         "Contact",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
+                        style: navbarTextStyle(
+                          Colors.white,
+                          FontWeight.normal,
+                          17,
                         ),
                       ),
                     ),
                   ],
                   onChanged: (value) {
-                    print(value);
+                    setState(() {
+                      dropDownValue = value!;
+                      print("Value: $value");
+                    });
+
+                    double height = 0;
+                    if (value == 2) {
+                      height = aboutSectionHeight;
+                    } else if (value == 3) {
+                      height = projectSectionHeight;
+                    } else if (value == 4) {
+                      height = projectSectionHeight;
+                    } else if (value == 5) {
+                      print("No height");
+                      height = projectSectionHeight;
+                    }
+                    widget.scroll(height);
                   },
                 ),
         ],
