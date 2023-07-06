@@ -21,6 +21,7 @@ class _HeaderState extends State<Header> {
     double aboutSectionHeight = homeSectionheight + height - 20;
     double profileSectionHeight = widget.list[0] + aboutSectionHeight;
     double projectSectionHeight = widget.list[1] + profileSectionHeight;
+    double contactSectionHeight = projectSectionHeight + 190;
 
     return SizedBox(
       height: 65,
@@ -107,7 +108,9 @@ class _HeaderState extends State<Header> {
                     ),
                     const SizedBox(width: 10),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.scroll(contactSectionHeight);
+                      },
                       child: Text(
                         "Contact",
                         style: navbarTextStyle(
@@ -186,7 +189,6 @@ class _HeaderState extends State<Header> {
                   onChanged: (value) {
                     setState(() {
                       dropDownValue = value!;
-                      print("Value: $value");
                     });
 
                     double height = 0;
@@ -197,8 +199,7 @@ class _HeaderState extends State<Header> {
                     } else if (value == 4) {
                       height = projectSectionHeight;
                     } else if (value == 5) {
-                      print("No height");
-                      height = projectSectionHeight;
+                      height = contactSectionHeight;
                     }
                     widget.scroll(height);
                   },

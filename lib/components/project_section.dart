@@ -24,7 +24,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 150),
+        padding: EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 25),
         child: Column(
           children: [
             SectionHeader("Projects", "My Recent Projects", 80),
