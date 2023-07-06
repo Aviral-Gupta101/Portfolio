@@ -3,6 +3,7 @@ import 'package:portfoilio/components/about_me_section.dart';
 import 'package:portfoilio/components/coding_section.dart';
 import 'package:portfoilio/components/header.dart';
 import 'package:portfoilio/components/home.dart';
+import 'package:portfoilio/components/project_section.dart';
 
 class HomePage extends StatelessWidget {
   final BoxConstraints constraints;
@@ -23,6 +24,7 @@ class HomePage extends StatelessWidget {
           Home(),
           AboutMeSection(),
           CodingSection(),
+          ProjectSection(),
         ],
       ),
     );
