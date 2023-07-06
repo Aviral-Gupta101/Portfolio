@@ -48,7 +48,7 @@ class _AboutMeContentState extends State<AboutMeContent> {
           Container(
             constraints: const BoxConstraints(maxWidth: 400),
             child: Text(
-              "My name is Aviral Gupta. I'm a dedicated and enthusiastic 3rd-year B.Tech student in Computer Science Engineering at Noida Institute of Engineering and Technology. I am committed to academic success and continuous learning.With strong programming and problem-solving skills, I am poised to make a positive impact in the technology field.",
+              "My name is Aviral Gupta. I'm a dedicated and enthusiastic 4th year B.Tech student in Computer Science Engineering at Noida Institute of Engineering and Technology. I am committed to academic success and continuous learning.With strong programming and problem-solving skills, I am poised to make a positive impact in the technology field.",
               style: GoogleFonts.roboto().copyWith(fontSize: 16),
               maxLines: 40,
               overflow: TextOverflow.ellipsis,
