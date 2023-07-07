@@ -56,7 +56,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                       "https://github.com/Aviral-Gupta101/Flutter-NodeJs-chat-app",
                 ),
                 ProjectCard(
-                  image: "assets/erms.jpeg",
+                  image: "assets/ERMS.png",
                   // heading: "Employee Recruitment\nManagement System",
                   heading: "ERMS",
                   des:
